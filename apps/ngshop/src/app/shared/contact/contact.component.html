@@ -1,0 +1,74 @@
+<p-toast></p-toast>
+<div class="content" style="padding-top: 90px;">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="grid">
+
+
+                <div class="grid ">
+                    <div class="col-6">
+
+                        <h3 class="heading mb-4">Let's talk about everything!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas debitis, fugit natus?</p>
+
+                        <p><img src="assets/images/undraw-contact.svg" alt="Image" class="img-fluid" width="400"></p>
+
+
+                    </div>
+                    <div class="col-6">
+
+                        <form class="mb-5"  id="contactForm" name="contactForm" [formGroup]="contactForm">
+                            <div class="row">
+                                <div class="col-12 form-grid grid">
+                                    <input type="text"  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="name" id="name"
+                                        placeholder="Your name" formControlName="name"  >
+                                        <small *ngIf="contactsForm['name'].invalid && isSubmitted" class="p-error">Name is
+                                            required</small>
+   
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-12 form-grid grid">
+                                    <input type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="email" id="email" placeholder="Email" formControlName="email"  >
+                                    <small *ngIf="contactsForm['email'].invalid && isSubmitted" class="p-error">
+                                    <span *ngIf="contactsForm['email'].errors?.['required']">email is required</span>
+                                    <span *ngIf="contactsForm['email'].errors?.['email']"> email is invalid</span></small>
+                                   
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-12 form-grid grid">
+                                    <input type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" name="subject" id="subject"
+                                        placeholder="Subject" formControlName="subject" >
+                                        <small *ngIf="contactsForm['subject'].invalid && isSubmitted" class="p-error">Subject is
+                                            required</small>
+                                        
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-12 form-grid grid">
+                                    <textarea class="form-control" name="message" id="message" cols="30" rows="7"
+                                        placeholder="Write your message" formControlName="message"  ></textarea>
+                                        <small *ngIf="contactsForm['message'].invalid && isSubmitted" class="p-error">Message is
+                                            required</small>
+                                       
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="submit" value="Send Message"
+                                        class="btn btn-primary rounded-0 py-2 px-4" (click)="onSubmit()" >
+                                    <span class="submitting"></span>
+                                </div>
+                            </div>
+                        </form>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<p-toast></p-toast>
+<div class="grid">
+  <div class="col-6 col-offset-2 " style="padding-top: 300px;">
+    <form [formGroup]="addimages" style="justify-content: center;" class="p-card " [style]="{'width': '45rem', 'margin-bottom': '2em' }">
+      <div class="grid ">
+        <div class="col-6 col-offset-3">
+          <p>please upload documents only in 'png' , 'jpeg' , 'jpg'</p>
+        </div>
+        <div class="col-6 col-offset-5">
+          <label for="upload">
+            <a class="pi pi-upload" style="font-size: 4em; cursor: pointer;"></a>
+    
+          </label>
+          
+          <input
+          id="upload"
+            type="file"
+            #multipleInput
+            multiple
+            (change)="selectFiles($event)"
+            style="display: none;"
+            
+          /><br>
+    
+         
+    
+          
+        </div><br>
+        <div class="col-6 col-offset-5">
+    
+           
+          <button pButton pRipple type="submit" label="Upload" class="p-button-outlined p-button-secondary"  (click)="onMultipleSubmit()"></button>
+    
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+

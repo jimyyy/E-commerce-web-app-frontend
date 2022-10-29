@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Orders" subheader="List of all Orders">
+       
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table   [paginator]="true" [rows]="5" [value]="orders" styleClass="p-datatable-gridlines" responsiveLayout="scroll"  >
+                    <ng-template pTemplate="header">
+                        <tr>
+                          
+                            <th pSortableColumn="name"  style="min-width:200px">User<p-sortIcon field="name"></p-sortIcon></th>
+                            <th  style="min-width:200px">Total Price</th>
+                            <th  style="min-width:200px">Date Ordered</th>
+                            <th  style="min-width:200px">Status</th>
+                            <th  style="min-width:200px">Actions</th>
+    
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-orders>
+                        <tr>
+
+                            <td>{{orders.user.name}}</td>
+                            <td>{{orders.totalPrice}}</td>
+                            <td>{{orders.dateOrdered | date:'short'}}</td>
+                            <td><p-tag [value]="orderStatus[orders.status].label" [severity]="orderStatus[orders.status].color"></p-tag></td>
+                            
+                            <td><p-button (click)="deleteOrder(orders._id)" styleClass="p-button-danger"  icon="pi pi-trash" class="mr-2" ></p-button>
+                            <p-button styleClass="p-button-success"  icon="pi pi-eye"  (click)="showOrder(orders._id)" ></p-button></td>
+                            
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+
+    </p-card>
+  
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+

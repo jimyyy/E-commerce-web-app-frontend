@@ -1,0 +1,67 @@
+<div class="admin-page" *ngIf="statistics.length">
+    <p-card header="Dashboard" subheader="Latest Updates">
+        <div class="grid">
+            <div class="col-3">
+                <p-card styleClass="p-orders">
+                    <div class="d-item">
+                        
+                            <div>
+                                <i class="pi pi-shopping-cart pi1" ></i><br>
+                                <span class="name">Orders</span>
+
+                            </div>
+                          
+                           <span class="number">{{statistics[0].orderCount}}</span> 
+                       
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="p-product">
+                    <div class="d-item">
+                        
+                            <div>
+                                <i class="pi pi-briefcase pi1" ></i><br>
+                                <span class="name">Products</span>
+
+                            </div>
+                          
+                           <span class="number">{{statistics[1].productCount}}</span> 
+                       
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="p-users">
+                    <div class="d-item">
+                        
+                            <div>
+                                <i class="pi pi-users pi1" ></i><br>
+                                <span class="name">Users</span>
+
+                            </div>
+                          
+                           <span class="number">{{statistics[2].userCount}}</span> 
+                       
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="p-totalsales">
+                    <div class="d-item">
+                        
+                            <div>
+                                <i class="pi pi-dollar pi1" ></i><br>
+                                <span class="name">TotalSales</span>
+
+                            </div>
+                          
+                           <span class="number">{{statistics[3].totalsales | currency}}</span> 
+                       
+                    </div>
+                </p-card>
+            </div>
+            
+        </div>
+    </p-card>
+</div>

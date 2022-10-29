@@ -1,0 +1,40 @@
+<p-toast></p-toast>
+<div class="product-detail" *ngIf="product">
+    <div class="grid">
+        <div class="col-6">
+           <gallery [images]="product.images"></gallery>
+
+        </div>
+        <div class="col-6 product-name" >
+            <h2>{{product.name}}</h2>
+             <p class="product-desc">
+                {{product.description}}
+             </p>
+             <div class="product-rating">
+                <p-rating [(ngModel)]="product.rating" [disabled]="true" [cancel]="false"></p-rating>
+             </div>
+             <div class="product-price">
+                {{product.price | currency:'TND'}}
+                <span class="price-before">{{ product.price   | currency:'TND'}}</span>
+             </div>
+             <div class="product-quantity">
+                <div class="field col-12 md:col-3 p-0">
+                    <label for="quantity">Quantity</label>
+                    <p-inputNumber [(ngModel)]="quantity" mode="decimal" [showButtons]="true" inputId="quantity" [min]="1" [max]="100">
+                    </p-inputNumber>
+                </div>
+             </div>
+             <div class="product-actions">
+                <button pButton pRipple type="button" label="Buy Now" class="p-button-rounded mr-2" ></button>
+               <button pButton pRipple type="button" label="Add to Cart" class="p-button-rounded" (click)="addProductToCart()"></button>
+             </div>
+        </div>
+
+    </div>
+    <div class="grid product-rich">
+        <div class="col-12">
+            <div [innerHTML]="product?.richDescription"></div>
+            
+        </div>
+    </div>
+</div>

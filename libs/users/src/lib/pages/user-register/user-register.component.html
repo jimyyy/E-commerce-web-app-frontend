@@ -1,0 +1,108 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Create Account" subheader="You can add or edit users here">
+        <div class="p-grid p-4">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button styleClass="p-button-primary" label= "Create " icon="pi pi-plus"
+                            (click)="onSubmit()" class="mr-3"></p-button>
+                        <p-button styleClass="p-button-secondary " label="Cancel" icon="pi pi-arrow-circle-left">
+                        </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <br />
+        <div class="p-grid">
+            <div class="p-col-12">
+                <form [formGroup]="userForm">
+                    <div class="card">
+
+                        <div class="formgrid grid">
+                            <div class="p-field col-4">
+                                <label for="name">Name</label>
+                                <input formControlName="name" id="name" type="text"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['name'].invalid && isSubmitted" class="p-error">Name is
+                                    required</small>
+                            </div>
+                            <div class="p-field col-4">
+                                <label for="icon">Email</label>
+                                <input formControlName="email" id="email" type="email"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['email'].invalid && isSubmitted" class="p-error">
+                                    <span *ngIf="adduser['email'].errors?.['required']">email is required</span>
+                                    <span *ngIf="adduser['email'].errors?.['email']"> email is invalid</span></small>
+
+                            </div>
+                            <div class="p-field col-4">
+                                <label for="color">Password</label><br>
+                                <input formControlName="password" id="password" type="password"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['password'].invalid && isSubmitted" class="p-error">Password is
+                                    required</small>
+    
+                            </div>
+
+                        </div><br>
+                        <div class="formgrid grid">
+                            <div class="p-field col-4">
+                                <label for="name">Phone</label><br>
+                                <p-inputMask mask="(999) 99-999-999" formControlName="phone" placeholder="(999) 99-999-999"></p-inputMask>
+                                <small *ngIf="adduser['phone'].invalid && isSubmitted" class="p-error">Phone is
+                                    required</small>
+                            </div>
+                           
+                        </div><br>
+                        <div class="formgrid grid">
+                            <div class="p-field col-4">
+                                <label for="name">Street</label>
+                                <input formControlName="street" id="street" type="text"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['street'].invalid && isSubmitted" class="p-error">Street is
+                                    required</small>
+                            </div>
+                            <div class="p-field col-4">
+                                <label for="icon">Country</label><br>
+                                <p-dropdown [options]="countries" formControlName="country" optionLabel="name" optionValue="id" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country"></p-dropdown>
+                                 <small *ngIf="adduser['country'].invalid && isSubmitted" class="p-error">Country is
+                                    required</small> 
+
+                            </div>
+                            <div class="p-field col-4">
+                                <label for="color">Zip Code</label><br>
+                                <input formControlName="zip" id="zip" type="text"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['zip'].invalid && isSubmitted" class="p-error">Code Zip is
+                                    required</small>
+    
+                            </div>
+
+                        </div><br>
+                        <div class="formgrid grid">
+                            <div class="p-field col-4">
+                                <label for="name">Apartment</label>
+                                <input formControlName="apartment" id="apartment" type="text"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['apartment'].invalid && isSubmitted" class="p-error">Apartment is
+                                    required</small>
+                            </div>
+                            <div class="p-field col-4">
+                                <label for="icon">City</label>
+                                <input formControlName="city" id="city" type="text"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
+                                <small *ngIf="adduser['city'].invalid && isSubmitted" class="p-error">City is
+                                    required</small>
+
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>
